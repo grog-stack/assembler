@@ -22,6 +22,7 @@ int main(int args, char **argv) {
     char *filename = argv[1];
     char *outputFileName = args > 2 ? argv[2] : OUTPUT_FILE_NAME;
     printf("Parsing %s\n", filename);
+    //int yydebug = 1;
     yyin = fopen(filename, "r");
     output = fopen(outputFileName, "wb");
     yyparse();

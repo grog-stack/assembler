@@ -1,6 +1,3 @@
 %%
-HCF    printf("halt and catch fire\n");
+HCF printf("HCF\n");
 %%
-int yywrap(void) {
-    return 1;
-}

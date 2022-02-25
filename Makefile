@@ -3,6 +3,6 @@ build: lexer
 lexer: yacc
 	lex grog.lex
 yacc:
-	yacc grog.yacc
+	yacc --defines grog.yacc
 clean:
 	rm lex.yy.c y.tab.c assembler

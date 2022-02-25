@@ -1,0 +1,3 @@
+LOAD @00 0
+LOAD @01 1
+HCF

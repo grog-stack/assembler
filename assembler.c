@@ -35,3 +35,11 @@ int main(int args, char **argv) {
 void hcf() {
     fputc(0x00, output);
 }
+
+void load() {
+    fputc(0x01, output);
+}
+
+void store() {
+    fputc(0x01, output);
+}

@@ -6,33 +6,42 @@ int yyerror(char *s);
 
 // Callbacks for recognized instructions
 void hcf();
+void load();
+void store();
 %}
 
 %token HCF LOAD STORE HEX ADDRESS;
 
 %%
 
-program:
-        program statement /* this is how we achieve multiple statements... O_o */
-        | /* matches nothing, meaning end of file */
+statements:
+        statements statement /* this is how we achieve multiple statements... O_o */
+        | /* end */
         ;
 
 statement:
-            haltAndCatchFire
-            | load
-            | store
+            operation
             ;
-load:
-    LOAD ADDRESS HEX
-    ;
 
-haltAndCatchFire: 
-                HCF { hcf(); }
-                ;
+operation:
+            opcode parameters
+            ;
 
-store:
-    STORE HEX ADDRESS { printf("store record in memory\n"); }
-    ;
+opcode:
+        HCF
+        | LOAD
+        | STORE
+        ;
+
+parameters:
+            parameters parameter
+            | /* end */
+            ;
+
+parameter:
+            ADDRESS
+            | HEX
+            ;
 
 %%
 
